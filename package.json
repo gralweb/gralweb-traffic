@@ -1,0 +1,21 @@
+{
+  "name": "gralweb-traffic",
+  "version": "1.0.0",
+  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass src/sass/index.scss src/css/index.css --watch --output-style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Hackdribbb/gralweb-traffic.git"
+  },
+  "keywords": [],
+  "author": "gralweb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Hackdribbb/gralweb-traffic/issues"
+  },
+  "homepage": "https://gralweb-traffic.netlify.app"
+}
