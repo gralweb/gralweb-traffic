@@ -1,5 +1,6 @@
 #_gt-header {
 	@include box-shadow;
+	min-height: 250px;
 	width: 100%;
 	display: flex;
 	overflow: hidden;
@@ -17,11 +18,12 @@
 			color: $color-blanco;
 			display: block;
 			padding: 5px;
-			line-height: 1.5em;
-			letter-spacing: .15em;
+			line-height: 1em;
+			letter-spacing: .12em;
 			font: {
-				size: 2em;
+				size: 2.8em;
 				weight: bold;
+				family: $text-font-headers;
 			}
 		}
 	}

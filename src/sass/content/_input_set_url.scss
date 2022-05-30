@@ -1,0 +1,59 @@
+._gt-form-add {
+	display: flex;
+	position: relative;
+	align-items: center;
+
+	& ._gt-form-add-input {
+		width: 100%;
+		height: 50px;
+		display: block;
+		padding: 5px 10px;
+		color: $color-negro;
+		letter-spacing: .1em;
+		border-top: 3px solid $color-gris;
+		font: {
+			size: .9em;
+			weight: bold;
+			family: $text-font-bold;
+		}
+
+		&::placeholder {
+			color: $color-gris;
+			letter-spacing: .2em;
+			font: {
+				size: .9em;
+			}
+		}
+	}
+
+	& ._gt-form-add-icon-container {
+		position: absolute;
+		display: flex;
+		top: 0;
+		right: 5px;
+		width: 60px;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+
+		& button {
+			@include box-shadow;
+			cursor: pointer;
+			width: 40px;
+			height: 40px;
+			border-radius: 100%;
+			-webkit-border-radius: 100%;
+			-moz-border-radius: 100%;
+			-ms-border-radius: 100%;
+			-o-border-radius: 100%;
+			font-size: 1em;
+			color: $color-blanco;
+			transition: all 300ms ease;
+			background-color: $color-gris;
+
+			&:hover {
+				background-color: $color-negro;
+			}
+		}
+	}
+}
