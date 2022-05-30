@@ -4,16 +4,91 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Gralweb Traffic</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 	<link rel="stylesheet" href="./src/css/index.css">
 </head>
 <body>
 
-	<main>
-		<div class="_container_counter">
-			<p><span>link 1 views :</span><span class="_counter">0</span></p>
-			<p><span>link 2 views :</span><span class="_counter">0</span></p>
-		</div>
-	</main>
+	<article id="_gt-content">
+		<header id="_gt-header" class="_gt-container">
+			<summary class="_gt-title">
+				<h1>Gralweb</h1>
+				<h1>Traffic</h1>
+			</summary>
+		</header>
+
+		<section class="_gt-container _gt-main">
+			<section class="_gt-form-add">
+				<input type="text" placeholder="Add Site" class="_gt-form-add-input">
+				<div class="_gt-form-add-icon-container">
+					<button type="button" id="_gt-form-add-icon" name="_add">
+						<i class="fa-solid fa-plus"></i>
+					</button>
+				</div>
+			</section>
+
+			<main class="_gt-container-urls">
+				<section class="_gt-url">
+					<ul class="_gt-url-options">
+						<li class="_gt-url-option _gt-url-options-close">
+							<button type="button" id="_gt-url-options-close" name="_options-close">
+								<i class="fa-solid fa-angle-left"></i>
+							</button>
+						</li>
+						<li class="_gt-url-option">
+							<button type="button" id="_gt-url-option-delete" name="_option-delete">
+								<i class="fa-solid fa-trash"></i>
+							</button>
+						</li>
+						<li class="_gt-url-option">
+							<button type="button" id="_gt-url-option-edit" name="_option-edit">
+								<i class="fa-solid fa-gear"></i>
+							</button>
+						</li>
+						<li class="_gt-url-option">
+							<button type="button" id="_gt-url-option-save" name="_option-save">
+								<i class="fa-regular fa-bookmark"></i>
+							</button>
+						</li>
+					</ul>
+
+					<div class="_gt-url-options-open">
+						<button type="button" id="_gt-url-options-open" name="_options-open">
+							<i class="fa-solid fa-angle-right"></i>
+						</button>
+					</div>
+
+					<section class="_gt-url-content">
+						<p class="_gt-url-content-link">
+							<a href="https://gralweb.web.app" target="_blank" rel="noopener noreferrer">
+								gralweb.web.app
+							</a>
+						</p>
+						<summary class="_gt-url-content-data">
+							<p class="_gt-url-timer-content">
+								<span><i class="fa-regular fa-clock"></i></span>
+								<span class="_gt-url-time">60</span>
+								<span>S</span>
+							</p>
+							<p class="_gt-url-counter-content">
+								<span>
+									<i class="fa-solid fa-chart-line"></i>
+									<!-- <i class="fa-solid fa-chart-simple"></i> -->
+								</span>
+								<span class="_gt-url-counter">60</span>
+							</p>
+						</summary>
+					</section>
+				</section>
+			</main>
+		</section>
+
+		<footer class="_gt-container">
+			<summary class="_gt-credits">
+				<h3>By <a href="https://gralweb.web.app" target="_blank">Gralweb</a></h3>
+			</summary>
+		</footer>
+	</article>
 	
 	<script src="./src/js/index.js" type="text/javascript"></script>
 </body>

@@ -2,8 +2,42 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border: none;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
 }
 
 body {
-    background-color: $color-gris;
+    background-color: $color-blanco;
+    position: relative;
+    font: {
+        family: $text-font-regular;
+        size: 1.2em;
+    }
+}
+
+#_gt-content {
+    // border: 2px solid red;
+    @include box-shadow;
+    width: $page-width;
+    height: 100vh;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    overflow-x: hidden;
+    justify-content: center;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+._gt-container {
+    width: 100%;
+    min-height: 50px;
 }

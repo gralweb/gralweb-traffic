@@ -1,0 +1,28 @@
+#_gt-header {
+	@include box-shadow;
+	width: 100%;
+	display: flex;
+	overflow: hidden;
+	align-items: center;
+	justify-content: center;
+	background-color: $color-primary;
+
+	& summary {
+		text: {
+			align: center;
+			transform: uppercase;
+		}
+
+		& h1 {
+			color: $color-blanco;
+			display: block;
+			padding: 5px;
+			line-height: 1.5em;
+			letter-spacing: .15em;
+			font: {
+				size: 2em;
+				weight: bold;
+			}
+		}
+	}
+}

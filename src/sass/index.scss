@@ -3,4 +3,10 @@
 @import "vars.scss";
 
 // Global
+@import "mixins.scss";
 @import "global.scss";
+
+// Fuentes de Texto
+@import "text-fonts.scss";
+// Contenido
+@import "./header/_header.scss";

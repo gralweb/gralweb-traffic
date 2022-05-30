@@ -39,6 +39,7 @@ const _global = ({_url, _counter, _timer_prop}) => {
 }
 
 window.onload = () => {
-	_global({ _url: 'http://adfoc.us/7616461', _counter: 0, _timer_prop: 15  })
-	_global({ _url: 'http://usheethe.com/V7wI', _counter: 1, _timer_prop: 15  })
+	// _global({ _url: 'http://adfoc.us/7616461', _counter: 0, _timer_prop: 15  })
+	// _global({ _url: 'http://usheethe.com/V7wI', _counter: 1, _timer_prop: 15  })
+	console.log("ready")
 }
