@@ -20,6 +20,7 @@ body {
 #_gt-content {
     // border: 2px solid red;
     @include box-shadow;
+    @include box-border;
     width: $page-width;
     height: 100vh;
     margin: auto;
