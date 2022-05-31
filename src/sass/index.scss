@@ -9,7 +9,8 @@
 // Fuentes de Texto
 @import "text-fonts.scss";
 // Contenido
-@import "./header/_header.scss";
+@import "./header/_header";
 @import "./content/_content_main";
 @import "./content/_input_set_url";
 @import "./content/_content_urls";
+@import "./footer/_footer";
