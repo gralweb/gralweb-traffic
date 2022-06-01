@@ -39,9 +39,9 @@
 			justify-content: center;
 			background-color: $color-primary;
 
-			&._open {
-				left: 0;
-			}
+			// &._open {
+			// 	left: 0;
+			// }
 
 			& ._gt-url-option button {
 				@include box-shadow;
@@ -72,9 +72,9 @@
 			flex-wrap: wrap;
 			align-items: center;
 
-			&._open {
-				right: -100%;
-			}
+			// &._open {
+			// 	right: -100%;
+			// }
 
 			& ._gt-url-options-open {
 				position: absolute;
@@ -152,6 +152,16 @@
 					font-size: .8em;
 				}
 			}
+		}
+	}
+
+	& ._gt-url._open {
+		& ._gt-url-options {
+			left: 0;
+		}
+
+		& ._gt-url-content {
+			right: -100%;
 		}
 	}
 }

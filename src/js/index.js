@@ -1,45 +1,11 @@
-const _global = ({_url, _counter, _timer_prop}) => {
-	let _window, _interval, _timer = _timer_prop, _counter_open = 0;
-	let _counter_show = document.querySelectorAll("._counter")[_counter]
-
-	const _handle_open = () => {
-		_window = window.open(_url, '_blank')
-		_counter_open++
-	}
-
-	const _handle_close = () => {
-		_window.close()
-		_counter_show.innerHTML = _counter_open
-	}
-
-	let _open_link = () => {
-
-		_handle_open()
-
-		_interval = setInterval( () => {
-			_timer--
-			if (_timer < 0) {
-				_timer = _timer_prop
-				_handle_close()
-				_reset_interval()
-				clearInterval(_interval)
-			}
-		}, 1000 )
-	}
-
-	let _reset_interval = () => {
-		if (_timer === _timer_prop) {
-			setTimeout(() => {
-				_open_link()
-			}, 5000)
-		}
-	}
-
-	_reset_interval()
-}
+import _url_template from './_url_template.js'
+import _click_trigger from './_click_trigger.js'
 
 window.onload = () => {
+	console.log("ready")
 	// _global({ _url: 'http://adfoc.us/7616461', _counter: 0, _timer_prop: 15  })
 	// _global({ _url: 'http://usheethe.com/V7wI', _counter: 1, _timer_prop: 15  })
-	console.log("ready")
+	// let test_uid = uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
+	// console.log(test_uid)
+	_click_trigger()
 }
