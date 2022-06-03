@@ -1,14 +1,22 @@
+import _Template from "./_template.js"
+
 class _url_template {
-	constructor ({_url, _counter, _timer_prop}) {
-		this.url_id = uuidv4()
+	constructor ({ _uuid_, _url, _timer_prop }) {
+		this._url_id =  _uuid_ ? _uuid_ : uuidv4()
 		this._url = _url
-		this._counter = _counter
 		this._timer_prop = _timer_prop
 		this._timer = this._timer_prop
 		this._window 
 		this._interval
+		this._timer_show
+		this._counter_show
 		this._counter_open = 0
-		this._counter_show = document.querySelectorAll("._counter")[this._counter]
+	}
+
+	_new_template () {
+		const _instance = new _Template({_uuid : this._url_id, _url : this._url})
+		_instance._template()
+		this._reset_interval()
 	}
 
 	_handle_open () {
@@ -17,11 +25,13 @@ class _url_template {
 	}
 
 	_handle_close () {
+		this._counter_show = document.querySelector(`#${this._url_id} ._gt-url-counter`)
 		this._window.close()
 		this._counter_show.innerHTML = this._counter_open
 	}
 
 	_open_link () {
+		this._timer_show = document.querySelector(`#${this._url_id} ._gt-url-time`)
 
 		this._handle_open()
 
@@ -32,6 +42,8 @@ class _url_template {
 				this._handle_close()
 				this._reset_interval()
 				clearInterval(this._interval)
+			} else {
+				this._timer_show.innerHTML = +this._timer.toString( )
 			}
 		}, 1000 )
 	}

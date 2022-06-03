@@ -1,3 +1,5 @@
+import _url_template from "./_url_template.js"
+
 const _click_trigger = () => {
 	document.body.addEventListener('click', e => {
 		let { name } = e.target
@@ -9,9 +11,13 @@ const _click_trigger = () => {
 			switch (name) {
 				case "_add":
 					e.preventDefault()
-					let _gt_input_add_val = document.querySelector("#_gt-input-add").value
-					console.log(_gt_input_add_val)
-					// Crear funcion para lanzar nuevo link
+					let _input_url = document.querySelector("#_gt-input-add")
+					let _url = _input_url.value
+					let _timer_prop = 30
+					// Funcion para lanzar nuevo link
+					const _new_url = new _url_template({ _url, _timer_prop })
+					_new_url._new_template()
+					_input_url.value = ""
 					break;
 				case "_options-open":
 					_gt_url.classList.add("_open")
@@ -35,9 +41,13 @@ const _click_trigger = () => {
 			switch (_parent_name) {
 				case "_add":
 					e.preventDefault()
-					let _gt_input_add_val = document.querySelector("#_gt-input-add").value
-					console.log(_gt_input_add_val)
-					// Crear funcion para lanzar nuevo link
+					let _input_url = document.querySelector("#_gt-input-add")
+					let _url = _input_url.value
+					let _timer_prop = 30
+					// Funcion para lanzar nuevo link
+					const _new_url = new _url_template({ _url, _timer_prop })
+					_new_url._new_template()
+					_input_url.value = ""
 					break;
 				case "_options-open":
 					_gt_url_icon.classList.add("_open")
