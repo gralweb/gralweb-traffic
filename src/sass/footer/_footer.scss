@@ -16,6 +16,10 @@
 			family: $text-font-headers;
 		}
 
+		@media screen and (max-width: 475px) {
+			font-size: .85em;
+		}
+
 		& h3 {
 			color: $color-negro;
 			cursor: default;

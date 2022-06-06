@@ -25,6 +25,10 @@
 				weight: bold;
 				family: $text-font-headers;
 			}
+
+			@media screen and (max-width: 475px) {
+				font-size: 2.2em;
+			}
 		}
 	}
 }
