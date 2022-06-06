@@ -1,5 +1,5 @@
 // import _url_template from "./_url_template.js"
-import { _add, _toggle } from "./_global_funct.js"
+import { _add, _toggle, _toggle_pause_play } from "./_global_funct.js"
 
 const _click_trigger = () => {
 	document.body.addEventListener('click', e => {
@@ -28,6 +28,10 @@ const _click_trigger = () => {
 				case "_option-edit":
 					console.log("Editar link")
 					break;
+				case "_option-pause-play":
+					_toggle_pause_play(e, "parent")
+					console.log("Pause link")
+					break;
 				case "_option-save":
 					console.log("Guardar link")
 					break;
@@ -48,6 +52,10 @@ const _click_trigger = () => {
 				case "_option-delete":
 					_gt_url_icon.remove()
 					console.log("Eliminar link")
+					break;
+				case "_option-pause-play":
+					_toggle_pause_play(e, "child")
+					console.log("Pause link")
 					break;
 				case "_option-edit":
 					console.log("Editar link")

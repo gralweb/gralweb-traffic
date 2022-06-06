@@ -19,4 +19,17 @@ const _toggle = _url => {
 	_url.classList.toggle("_open")
 }
 
-export { _add, _toggle }
+const _toggle_pause_play = (_item, _type) => {
+	switch(_type) {
+		case "parent":
+			_item.target.children[0].classList.toggle("fa-pause")
+			_item.target.children[0].classList.toggle("fa-play")
+			break;
+		case "child":
+			_item.target.classList.toggle("fa-pause")
+			_item.target.classList.toggle("fa-play")
+			break;
+	}
+}
+
+export { _add, _toggle, _toggle_pause_play }

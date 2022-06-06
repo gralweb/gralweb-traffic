@@ -37,6 +37,24 @@ class _Template {
 					// Agregando boton al item
 					_li_close.appendChild(_button_close)
 				// Creacion de cada item de la lista (opciones)
+				const _li_pause_play = document.createElement("li")
+					// Atributos
+					_li_pause_play.classList.add("_gt-url-option")
+					// Boton de sera handler para la opcion
+					const _button_pause_play = document.createElement("button")
+						// Atributos 
+						_button_pause_play.setAttribute("type", "button")
+						_button_pause_play.setAttribute("name", "_option-pause-play")
+						// Icono del boton - opcion
+						const _i_pause_play = document.createElement("i")
+							// Atributos
+							_i_pause_play.classList.add("fa-solid")
+							_i_pause_play.classList.add("fa-pause")
+						// Agregando icono al boton
+						_button_pause_play.appendChild(_i_pause_play)
+					// Agregando boton al item
+					_li_pause_play.appendChild(_button_pause_play)	
+				// Creacion de cada item de la lista (opciones)
 				const _li_delete = document.createElement("li")
 					// Atributos
 					_li_delete.classList.add("_gt-url-option")
@@ -93,6 +111,7 @@ class _Template {
 					_li_save.appendChild(_button_save)
 				// Agregando items a la lista
 				_ul.appendChild(_li_close)
+				_ul.appendChild(_li_pause_play)
 				_ul.appendChild(_li_delete)
 				_ul.appendChild(_li_edit)
 				_ul.appendChild(_li_save)
