@@ -21,6 +21,7 @@
 
 	& ._gt-form-add-input {
 		caret-color: $color-primary;
+		transition: all 300ms ease;
 		width: 100%;
 		height: 50px;
 		display: block;

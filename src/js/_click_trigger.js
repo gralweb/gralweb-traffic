@@ -1,5 +1,5 @@
 // import _url_template from "./_url_template.js"
-import { _add, _toggle, _toggle_pause_play } from "./_global_funct.js"
+import { _alert_errs, _toggle, _toggle_pause_play } from "./_global_funct.js"
 
 const _click_trigger = () => {
 	document.body.addEventListener('click', e => {
@@ -12,7 +12,7 @@ const _click_trigger = () => {
 			switch (name) {
 				case "_add":
 					e.preventDefault()
-					_add()
+					_alert_errs()
 					break;
 				case "_options-open":
 					_toggle(_gt_url)
@@ -20,7 +20,7 @@ const _click_trigger = () => {
 				case "_options-close":
 					_toggle(_gt_url)
 					break;
-				// Opciones para el link
+			// Opciones para el link
 				case "_option-delete":
 					_gt_url.remove()
 					console.log("Eliminar link")
@@ -40,7 +40,7 @@ const _click_trigger = () => {
 			switch (_parent_name) {
 				case "_add":
 					e.preventDefault()
-					_add()
+					_alert_errs()
 					break;
 				case "_options-open":
 					_toggle(_gt_url_icon)
@@ -48,7 +48,7 @@ const _click_trigger = () => {
 				case "_options-close":
 					_toggle(_gt_url_icon)
 					break;
-				// Opciones para el link
+			// Opciones para el link
 				case "_option-delete":
 					_gt_url_icon.remove()
 					console.log("Eliminar link")
