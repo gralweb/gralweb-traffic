@@ -1,5 +1,10 @@
-// import _url_template from "./_url_template.js"
-import { _alert_errs, _toggle, _toggle_pause_play } from "./_global_funct.js"
+import DB_DATA from './../db/db.js'
+import state from './../db/state.js'
+
+import _alert_errs from './_validate_form.js'
+
+import { _toggle } from "./_global_funct.js"
+import { _toggle_pause_play } from './_links_actions.js'
 
 const _click_trigger = () => {
 	document.body.addEventListener('click', e => {
@@ -22,18 +27,21 @@ const _click_trigger = () => {
 					break;
 			// Opciones para el link
 				case "_option-delete":
-					_gt_url.remove()
+					// _gt_url.remove()
 					console.log("Eliminar link")
+					console.log("state", state)
 					break;
 				case "_option-edit":
 					console.log("Editar link")
+					console.log("state", state)
+
 					break;
 				case "_option-pause-play":
-					_toggle_pause_play(e, "parent")
-					console.log("Pause link")
+					_toggle_pause_play(e.target, "parent")
 					break;
 				case "_option-save":
 					console.log("Guardar link")
+					console.log("state", state)
 					break;
 			}
 		} else if (_parent_name) {
@@ -52,16 +60,21 @@ const _click_trigger = () => {
 				case "_option-delete":
 					_gt_url_icon.remove()
 					console.log("Eliminar link")
+					
+					console.log("state", state)
 					break;
 				case "_option-pause-play":
-					_toggle_pause_play(e, "child")
-					console.log("Pause link")
+					_toggle_pause_play(e.target, "child")
 					break;
 				case "_option-edit":
 					console.log("Editar link")
+
+					console.log("state", state)
 					break;
 				case "_option-save":
 					console.log("Guardar link")
+
+					console.log("state", state)
 					break;
 			}
 		}

@@ -1,10 +1,9 @@
 import _Template from "./_template.js"
 
 class _url_template {
-	constructor ({ _uuid_, _url, _timer_prop }) {
+	constructor ({ _uuid, _url, _timer_prop }) {
 		this._pause = false
-		// this._die = false
-		this._url_id =  _uuid_ ? _uuid_ : uuidv4()
+		this._url_id = _uuid
 		this._url = _url
 		this._timer_prop = _timer_prop
 		this._timer = this._timer_prop
@@ -16,30 +15,12 @@ class _url_template {
 		this._counter_open = 0
 	}
 
-	_handle_pause () {
-		this._pause = !this._pause
-	}
-
 	_new_template () {
 		const _instance = new _Template({_uuid : this._url_id, _url : this._url})
 		_instance._template()
 		setTimeout(() => {
 			this._reset_interval()
 		}, 2000)
-	}
-
-	_handle_open () {
-		this._window = window.open(this._url, '_blank')
-		this._counter_open++
-	}
-
-	_handle_close () {
-		this._counter_show = this._data_parent ? this._data_parent.querySelector("._gt-url-counter") : null
-
-		this._window.close()
-		if (this._counter_show !== null) {
-			this._counter_show.innerHTML = this._counter_open
-		}
 	}
 
 	_open_link () {
@@ -51,9 +32,7 @@ class _url_template {
 		this._handle_open()
 
 		this._interval = setInterval( () => {
-			if (this._pause) {
-				return
-			} else {
+			if (!this._pause) {
 				this._timer--
 				if (this._timer < 0) {
 					this._timer = this._timer_prop
@@ -67,6 +46,26 @@ class _url_template {
 				}
 			}
 		}, 1000 )
+	}
+
+	_handle_pause () {
+		this._pause = !this._pause
+	}
+
+	_handle_open () {
+		if (!this._pause) {
+			this._window = window.open(this._url, '_blank')
+			this._counter_open++
+		}
+	}
+
+	_handle_close () {
+		this._counter_show = this._data_parent ? this._data_parent.querySelector("._gt-url-counter") : null
+
+		this._window.close()
+		if (this._counter_show !== null) {
+			this._counter_show.innerHTML = this._counter_open
+		}
 	}
 
 	_reset_interval () {

@@ -27,15 +27,19 @@ class _Template {
 						// Atributos 
 						_button_close.setAttribute("type", "button")
 						_button_close.setAttribute("name", "_options-close")
+
 						// Icono del boton - opcion
 						const _i_close = document.createElement("i")
 							// Atributos
 							_i_close.classList.add("fa-solid")
 							_i_close.classList.add("fa-angle-left")
+						
 						// Agregando icono al boton
 						_button_close.appendChild(_i_close)
+
 					// Agregando boton al item
 					_li_close.appendChild(_button_close)
+
 				// Creacion de cada item de la lista (opciones)
 				const _li_pause_play = document.createElement("li")
 					// Atributos
@@ -45,11 +49,15 @@ class _Template {
 						// Atributos 
 						_button_pause_play.setAttribute("type", "button")
 						_button_pause_play.setAttribute("name", "_option-pause-play")
+						_button_pause_play.setAttribute("parent-id", this._uuid)
+
 						// Icono del boton - opcion
 						const _i_pause_play = document.createElement("i")
 							// Atributos
 							_i_pause_play.classList.add("fa-solid")
 							_i_pause_play.classList.add("fa-pause")
+							_i_pause_play.setAttribute("parent-id", this._uuid)
+
 						// Agregando icono al boton
 						_button_pause_play.appendChild(_i_pause_play)
 					// Agregando boton al item
@@ -63,11 +71,15 @@ class _Template {
 						// Atributos 
 						_button_delete.setAttribute("type", "button")
 						_button_delete.setAttribute("name", "_option-delete")
+						_button_delete.setAttribute("parent-id", this._uuid)
+
 						// Icono del boton - opcion
 						const _i_delete = document.createElement("i")
 							// Atributos
 							_i_delete.classList.add("fa-solid")
 							_i_delete.classList.add("fa-trash")
+							_i_delete.setAttribute("parent-id", this._uuid)
+							
 						// Agregando icono al boton
 						_button_delete.appendChild(_i_delete)
 					// Agregando boton al item
@@ -81,12 +93,15 @@ class _Template {
 						// Atributos 
 						_button_edit.setAttribute("type", "button")
 						_button_edit.setAttribute("name", "_option-edit")
+						_button_edit.setAttribute("parent-id", this._uuid)
 						
 						// Icono del boton - opcion
 						const _i_edit = document.createElement("i")
 							// Atributos
 							_i_edit.classList.add("fa-solid")
 							_i_edit.classList.add("fa-gear")
+							_i_edit.setAttribute("parent-id", this._uuid)
+
 						// Agregando icono al boton
 						_button_edit.appendChild(_i_edit)
 					// Agregando boton al item
@@ -97,14 +112,18 @@ class _Template {
 					_li_save.classList.add("_gt-url-option")
 					// Boton de sera handler para la opcion
 					const _button_save = document.createElement("button")
-					// Atributos 
-					_button_save.setAttribute("type", "button")
-					_button_save.setAttribute("name", "_option-save")
+						// Atributos 
+						_button_save.setAttribute("type", "button")
+						_button_save.setAttribute("name", "_option-save")
+						_button_save.setAttribute("parent-id", this._uuid)
+
 						// Icono del boton - opcion
 						const _i_save = document.createElement("i")
 							// Atributos
 							_i_save.classList.add("fa-regular")
 							_i_save.classList.add("fa-bookmark")
+							_i_save.setAttribute("parent-id", this._uuid)
+
 						// Agregando icono al boton
 						_button_save.appendChild(_i_save)
 					// Agregando boton al item
