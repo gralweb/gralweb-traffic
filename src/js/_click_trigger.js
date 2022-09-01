@@ -4,7 +4,13 @@ import state from './../db/state.js'
 import _alert_errs from './_validate_form.js'
 
 import { _toggle } from "./_global_funct.js"
-import { _toggle_pause_play } from './_links_actions.js'
+import
+	{ 
+		_toggle_pause_play,
+		_toggle_favs,
+		_delete_link,
+	}
+from './_links_actions.js'
 
 const _click_trigger = () => {
 	document.body.addEventListener('click', e => {
@@ -27,9 +33,8 @@ const _click_trigger = () => {
 					break;
 			// Opciones para el link
 				case "_option-delete":
-					// _gt_url.remove()
-					console.log("Eliminar link")
-					console.log("state", state)
+					_delete_link(e.target)
+					_gt_url.remove()
 					break;
 				case "_option-edit":
 					console.log("Editar link")
@@ -40,8 +45,7 @@ const _click_trigger = () => {
 					_toggle_pause_play(e.target, "parent")
 					break;
 				case "_option-save":
-					console.log("Guardar link")
-					console.log("state", state)
+					_toggle_favs(e.target, "parent")
 					break;
 			}
 		} else if (_parent_name) {
@@ -58,23 +62,18 @@ const _click_trigger = () => {
 					break;
 			// Opciones para el link
 				case "_option-delete":
+					_delete_link(e.target)
 					_gt_url_icon.remove()
-					console.log("Eliminar link")
-					
-					console.log("state", state)
 					break;
 				case "_option-pause-play":
 					_toggle_pause_play(e.target, "child")
 					break;
 				case "_option-edit":
 					console.log("Editar link")
-
 					console.log("state", state)
 					break;
 				case "_option-save":
-					console.log("Guardar link")
-
-					console.log("state", state)
+					_toggle_favs(e.target, "child")
 					break;
 			}
 		}

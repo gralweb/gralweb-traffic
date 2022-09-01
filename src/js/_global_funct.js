@@ -8,10 +8,8 @@ const _add = ( _input_url, _input_time, _uuid_) => {
 	let _timer_prop = _input_time.value
 
 	// Funcion para lanzar nuevo link
-	const _new_url = new _url_template({ _uuid, _url, _timer_prop })
-	_new_url._new_template()
-
-	state[_uuid] = _new_url
+	state[_uuid] = new _url_template({ _uuid, _url, _timer_prop })
+	state[_uuid]._new_template()
 
 	// Limpiar los input despues de recibir los datos
 	_input_url.value = ""
