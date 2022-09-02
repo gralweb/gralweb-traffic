@@ -3,12 +3,13 @@ import state from './../db/state.js'
 
 import _alert_errs from './_validate_form.js'
 
-import { _toggle } from "./_global_funct.js"
+import { _edit, _toggle } from "./_global_funct.js"
 import
 	{ 
 		_toggle_pause_play,
 		_toggle_favs,
 		_delete_link,
+		_edit_link,
 	}
 from './_links_actions.js'
 
@@ -25,11 +26,18 @@ const _click_trigger = () => {
 					e.preventDefault()
 					_alert_errs()
 					break;
+				case "_edit":
+					e.preventDefault()
+					_edit()
+					break;
 				case "_options-open":
 					_toggle(_gt_url)
 					break;
 				case "_options-close":
 					_toggle(_gt_url)
+					break;
+				case "_close_edit":
+					document.querySelector('._gt-form-edit').classList.remove('_open')
 					break;
 			// Opciones para el link
 				case "_option-delete":
@@ -37,9 +45,7 @@ const _click_trigger = () => {
 					_gt_url.remove()
 					break;
 				case "_option-edit":
-					console.log("Editar link")
-					console.log("state", state)
-
+					_edit_link(e.target)
 					break;
 				case "_option-pause-play":
 					_toggle_pause_play(e.target, "parent")
@@ -54,11 +60,18 @@ const _click_trigger = () => {
 					e.preventDefault()
 					_alert_errs()
 					break;
+				case "_edit":
+					e.preventDefault()
+					_edit()
+					break;
 				case "_options-open":
 					_toggle(_gt_url_icon)
 					break;
 				case "_options-close":
 					_toggle(_gt_url_icon)
+					break;
+				case "_close_edit":
+					document.querySelector('._gt-form-edit').classList.remove('_open')
 					break;
 			// Opciones para el link
 				case "_option-delete":
@@ -69,15 +82,14 @@ const _click_trigger = () => {
 					_toggle_pause_play(e.target, "child")
 					break;
 				case "_option-edit":
-					console.log("Editar link")
-					console.log("state", state)
+					_edit_link(e.target)
 					break;
 				case "_option-save":
 					_toggle_favs(e.target, "child")
 					break;
 			}
 		}
-	} )
+	})
 }
 
 export default _click_trigger

@@ -25,7 +25,7 @@ class _url_template {
 
 	_open_link () {
 		if (!this._data_parent) {
-			this._data_parent = document.getElementById(`${this._url_id}`)
+			this._data_parent = document.getElementById(this._url_id)
 		}
 		this._timer_show =  this._data_parent ? this._data_parent.querySelector("._gt-url-time") : null
 
@@ -66,6 +66,17 @@ class _url_template {
 		if (this._counter_show !== null) {
 			this._counter_show.innerHTML = this._counter_open
 		}
+	}
+
+	_update_link ( _uuid_, _url_, _time_ ) {
+		const _link_text_parent = document.getElementById(_uuid_)
+		const _link_text = _link_text_parent ? _link_text_parent.querySelector("._gt-url-content-link a") : null
+
+		_link_text.textContent = _url_
+		this._url = _url_
+		this._timer_prop = _time_
+
+		this._reset_interval()
 	}
 
 	_reset_interval () {

@@ -16,9 +16,20 @@ const _add = ( _input_url, _input_time, _uuid_) => {
 	_input_time.value = ""
 }
 
+// Funcion para editar links
+const _edit = () => {
+	let _input_id = document.querySelector('#_gt-input-edit-link-id').value
+	let _input_url = document.querySelector('#_gt-input-edit-url').value
+	let _input_time = document.querySelector('#_gt-input-edit-time').value
+
+	state[_input_id]._update_link( _input_id, _input_url, _input_time )
+
+	document.querySelector('._gt-form-edit').classList.remove('_open')
+}
+
 // Abrir / Cerrar Opciones de URLS
 const _toggle = _url => {
 	_url.classList.toggle("_open")
 }
 
-export { _add, _toggle }
+export { _add, _edit, _toggle }

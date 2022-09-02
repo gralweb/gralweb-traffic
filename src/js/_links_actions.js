@@ -60,15 +60,18 @@ const _delete_link = _item => {
 const _edit_link = _item => {
 	const _parent_id = _item.attributes['parent-id'].value
 
-	// Buscar Formulario de edicion
+	const _update_form = document.querySelector('._gt-form-edit')
+	const _update_form_link_id = document.querySelector('#_gt-input-edit-link-id')
+	const _update_form_link = document.querySelector('#_gt-input-edit-url')
+	const _update_form_time = document.querySelector('#_gt-input-edit-time')
 
 	const { _url_id, _url, _timer_prop } = state[_parent_id]
 
-	const _old_date = {
-		"_uuid": _url_id,
-		_url,
-		_timer_prop
-	}
+	_update_form.classList.add('_open')
+
+	_update_form_link_id.value = _url_id
+	_update_form_link.value = _url
+	_update_form_time.value = parseInt(_timer_prop)
 }
 
 export { _toggle_pause_play, _toggle_favs, _delete_link, _edit_link }

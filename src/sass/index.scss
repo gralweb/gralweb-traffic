@@ -1,16 +1,18 @@
 // @@@@@@@@@@@@@@@@@@@@@@@@
 // Variables
-@import "vars.scss";
+@import "vars";
 
 // Global
-@import "mixins.scss";
-@import "global.scss";
+@import "mixins";
+@import "global";
 
 // Fuentes de Texto
-@import "text-fonts.scss";
+@import "text-fonts";
+
 // Contenido
 @import "./header/_header";
 @import "./content/_content_main";
 @import "./content/_input_set_url";
+@import "./content/_input_update_link";
 @import "./content/_content_urls";
 @import "./footer/_footer";
