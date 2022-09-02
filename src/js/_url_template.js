@@ -48,6 +48,10 @@ class _url_template {
 		}, 1000 )
 	}
 
+	_handle_die () {
+		this._pause = true
+	}
+
 	_handle_pause () {
 		this._pause = !this._pause
 	}

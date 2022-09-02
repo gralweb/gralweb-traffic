@@ -54,7 +54,7 @@ const _toggle_favs = (_item, _type) => {
 const _delete_link = _item => {
 	const _parent_id = _item.attributes['parent-id'].value
 
-	state[_parent_id]._handle_pause()
+	state[_parent_id]._handle_die()
 }
 
 const _edit_link = _item => {
