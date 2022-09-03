@@ -1,10 +1,11 @@
 import _Template from "./_template.js"
 
 class _url_template {
-	constructor ({ _uuid, _url, _timer_prop }) {
+	constructor ({ _uuid, _url, _timer_prop, _saved }) {
 		this._pause = false
 		this._url_id = _uuid
 		this._url = _url
+		this._saved = _saved
 		this._timer_prop = _timer_prop
 		this._timer = this._timer_prop
 		this._window 
@@ -16,7 +17,7 @@ class _url_template {
 	}
 
 	_new_template () {
-		const _instance = new _Template({_uuid : this._url_id, _url : this._url})
+		const _instance = new _Template({_uuid : this._url_id, _url : this._url, _saved: this._saved})
 		_instance._template()
 		setTimeout(() => {
 			this._reset_interval()

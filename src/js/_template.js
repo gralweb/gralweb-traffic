@@ -1,7 +1,8 @@
 class _Template {
-	constructor({ _uuid, _url }) {
+	constructor({ _uuid, _url, _saved }) {
 		this._uuid = _uuid
 		this._url = _url
+		this._saved = _saved
 	}
 
 	_template () {
@@ -120,7 +121,7 @@ class _Template {
 						// Icono del boton - opcion
 						const _i_save = document.createElement("i")
 							// Atributos
-							_i_save.classList.add("fa-regular")
+							_i_save.classList.add( this._saved ? "fa-solid" : "fa-regular" )
 							_i_save.classList.add("fa-bookmark")
 							_i_save.setAttribute("parent-id", this._uuid)
 

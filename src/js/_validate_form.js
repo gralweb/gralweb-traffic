@@ -43,7 +43,11 @@ const _alert_errs = () => {
 			_input_time.classList.add("_gt-error")
 		}
 	} else {
-		_add(_input_url, _input_time)
+		_add(_input_url.value, _input_time.value)
+
+		// Limpiar los input despues de recibir los datos
+		_input_url.value = ""
+		_input_time.value = ""
 	}
 }
 

@@ -33,20 +33,19 @@ const _toggle_favs = (_item, _type) => {
 			break;
 	}
 
-	const { _url_id, _url, _timer_prop } = state[_parent_id]
-	const _test_saved = _saved.find( _elm => _elm._uuid === _url_id ) 
+	const { _url, _timer_prop } = state[_parent_id]
+	const _test_saved = _saved.find( _elm => _elm._url === _url ) 
 
 	const _template = {
-		"_uuid": _url_id,
 		_url,
 		_timer_prop
 	}
 
 	if (!_test_saved) {
-		const _to_save = JSON.stringify([ ..._saved, _template ])	
-		localStorage.setItem("saved", _to_save)	
+		const _to_save = JSON.stringify([ ..._saved, _template ])
+		localStorage.setItem("saved", _to_save)
 	} else {
-		const _remove_link = JSON.stringify(_saved.filter(_elm => _elm._uuid !== _url_id))
+		const _remove_link = JSON.stringify(_saved.filter(_elm => _elm._url !== _url))
 		localStorage.setItem("saved", _remove_link)
 	}
 }
