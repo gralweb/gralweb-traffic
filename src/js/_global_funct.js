@@ -5,7 +5,7 @@ import _url_template from "./_url_template.js"
 const _add = ( _input_url, _input_time, _saved = false) => {
 	let _uuid = uuidv4()
 	let _timer_prop = _input_time
-	let _url = _input_url.includes("http://", 0) ? _input_url : `https://${_input_url}`
+	let _url = _input_url.includes("http://", 0) ? _input_url : `http://${_input_url}`
 
 	// Funcion para lanzar nuevo link
 	state[_uuid] = new _url_template({ _uuid, _url, _timer_prop, _saved })
