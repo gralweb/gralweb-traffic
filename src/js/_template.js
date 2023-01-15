@@ -3,6 +3,100 @@ class _Template {
 		this._uuid = _uuid
 		this._url = _url
 		this._saved = _saved
+		this._li_options = [
+			{
+				"name": "close", "classNames": ["_gt-url-option", "_gt-url-options-close"],
+				"button": {
+					"attr": ["type", "name", "parent-id"],
+					"type": "button",
+					"name": "_options-close",
+					"parent-id": this._uuid
+				},
+				"icon": {
+					"attr": ["parent-id"],
+					"classNames": ["fa-solid", "fa-angle-left"],
+					"parent-id": this._uuid
+				}
+			},
+			{
+				"name": "pause_play", "classNames": ["_gt-url-option"],
+				"button": {
+					"attr": ["type", "name", "parent-id"],
+					"type": "button",
+					"name": "_option-pause-play",
+					"parent-id": this._uuid
+				},
+				"icon": {
+					"attr": ["parent-id"],
+					"classNames": ["fa-solid", "fa-pause"],
+					"parent-id": this._uuid
+				}
+			},
+			{
+				"name": "delete", "classNames": ["_gt-url-option"],
+				"button": {
+					"attr": ["type", "name", "parent-id"],
+					"type": "button",
+					"name": "_option-delete",
+					"parent-id": this._uuid
+				},
+				"icon": {
+					"attr": ["parent-id"],
+					"classNames": ["fa-solid", "fa-trash"],
+					"parent-id": this._uuid
+				}
+			},
+			{
+				"name": "edit", "classNames": ["_gt-url-option"],
+				"button": {
+					"attr": ["type", "name", "parent-id"],
+					"type": "button",
+					"name": "_option-edit",
+					"parent-id": this._uuid
+				},
+				"icon": {
+					"attr": ["parent-id"],
+					"classNames": ["fa-solid", "fa-gear"],
+					"parent-id": this._uuid
+				}
+			},
+			{
+				"name": "save", "classNames": ["_gt-url-option"],
+				"button": {
+					"attr": ["type", "name", "parent-id"],
+					"type": "button",
+					"name": "_option-save",
+					"parent-id": this._uuid
+				},
+				"icon": {
+					"attr": ["parent-id"],
+					"classNames": [this._saved ? "fa-solid" : "fa-regular", "fa-bookmark"],
+					"parent-id": this._uuid
+				}
+			},
+		]
+	}
+
+	_generate_options (_parent) {
+		this._li_options.forEach((_li) => {
+			const _li_element = document.createElement("li")
+				// Agregando clases al elemento li
+				_li.classNames.forEach(_clss => _li_element.classList.add(_clss))
+				// Creamos el elemento Button
+				const _button = document.createElement("button")
+					// Agregamos los atributos del elemento Button
+					_li.button.attr.forEach(_attr => _button.setAttribute(_attr, _li.button[_attr]))
+					const _icon = document.createElement("i")
+						// Agregamos las clases y atributos del icono
+						_li.icon.classNames.forEach(_clss => _icon.classList.add(_clss))
+						_li.icon.attr.forEach(_attr => _icon.setAttribute(_attr, _li.icon[_attr]))
+					// Agregando icono al boton
+					_button.appendChild(_icon)
+				// Agregando el boton al LI
+				_li_element.appendChild(_button)
+			// Agregando el LI al elemento UL (Padre)
+			_parent.appendChild(_li_element)
+		})
 	}
 
 	_template () {
@@ -19,122 +113,7 @@ class _Template {
 				// Atributos
 				_ul.classList.add("_gt-url-options")
 				// Creacion de cada item de la lista (opciones)
-				const _li_close = document.createElement("li")
-					// Atributos
-					_li_close.classList.add("_gt-url-option")
-					_li_close.classList.add("_gt-url-options-close")
-					// Boton de sera handler para la opcion
-					const _button_close = document.createElement("button")
-						// Atributos 
-						_button_close.setAttribute("type", "button")
-						_button_close.setAttribute("name", "_options-close")
-
-						// Icono del boton - opcion
-						const _i_close = document.createElement("i")
-							// Atributos
-							_i_close.classList.add("fa-solid")
-							_i_close.classList.add("fa-angle-left")
-						
-						// Agregando icono al boton
-						_button_close.appendChild(_i_close)
-
-					// Agregando boton al item
-					_li_close.appendChild(_button_close)
-
-				// Creacion de cada item de la lista (opciones)
-				const _li_pause_play = document.createElement("li")
-					// Atributos
-					_li_pause_play.classList.add("_gt-url-option")
-					// Boton de sera handler para la opcion
-					const _button_pause_play = document.createElement("button")
-						// Atributos 
-						_button_pause_play.setAttribute("type", "button")
-						_button_pause_play.setAttribute("name", "_option-pause-play")
-						_button_pause_play.setAttribute("parent-id", this._uuid)
-
-						// Icono del boton - opcion
-						const _i_pause_play = document.createElement("i")
-							// Atributos
-							_i_pause_play.classList.add("fa-solid")
-							_i_pause_play.classList.add("fa-pause")
-							_i_pause_play.setAttribute("parent-id", this._uuid)
-
-						// Agregando icono al boton
-						_button_pause_play.appendChild(_i_pause_play)
-					// Agregando boton al item
-					_li_pause_play.appendChild(_button_pause_play)	
-				// Creacion de cada item de la lista (opciones)
-				const _li_delete = document.createElement("li")
-					// Atributos
-					_li_delete.classList.add("_gt-url-option")
-					// Boton de sera handler para la opcion
-					const _button_delete = document.createElement("button")
-						// Atributos 
-						_button_delete.setAttribute("type", "button")
-						_button_delete.setAttribute("name", "_option-delete")
-						_button_delete.setAttribute("parent-id", this._uuid)
-
-						// Icono del boton - opcion
-						const _i_delete = document.createElement("i")
-							// Atributos
-							_i_delete.classList.add("fa-solid")
-							_i_delete.classList.add("fa-trash")
-							_i_delete.setAttribute("parent-id", this._uuid)
-							
-						// Agregando icono al boton
-						_button_delete.appendChild(_i_delete)
-					// Agregando boton al item
-					_li_delete.appendChild(_button_delete)	
-				// Creacion de cada item de la lista (opciones)
-				const _li_edit = document.createElement("li")
-					// Atributos
-					_li_edit.classList.add("_gt-url-option")
-					// Boton de sera handler para la opcion
-					const _button_edit = document.createElement("button")
-						// Atributos 
-						_button_edit.setAttribute("type", "button")
-						_button_edit.setAttribute("name", "_option-edit")
-						_button_edit.setAttribute("parent-id", this._uuid)
-						
-						// Icono del boton - opcion
-						const _i_edit = document.createElement("i")
-							// Atributos
-							_i_edit.classList.add("fa-solid")
-							_i_edit.classList.add("fa-gear")
-							_i_edit.setAttribute("parent-id", this._uuid)
-
-						// Agregando icono al boton
-						_button_edit.appendChild(_i_edit)
-					// Agregando boton al item
-					_li_edit.appendChild(_button_edit)
-				// Creacion de cada item de la lista (opciones)
-				const _li_save = document.createElement("li")
-					// Atributos
-					_li_save.classList.add("_gt-url-option")
-					// Boton de sera handler para la opcion
-					const _button_save = document.createElement("button")
-						// Atributos 
-						_button_save.setAttribute("type", "button")
-						_button_save.setAttribute("name", "_option-save")
-						_button_save.setAttribute("parent-id", this._uuid)
-
-						// Icono del boton - opcion
-						const _i_save = document.createElement("i")
-							// Atributos
-							_i_save.classList.add( this._saved ? "fa-solid" : "fa-regular" )
-							_i_save.classList.add("fa-bookmark")
-							_i_save.setAttribute("parent-id", this._uuid)
-
-						// Agregando icono al boton
-						_button_save.appendChild(_i_save)
-					// Agregando boton al item
-					_li_save.appendChild(_button_save)
-				// Agregando items a la lista
-				_ul.appendChild(_li_close)
-				_ul.appendChild(_li_pause_play)
-				_ul.appendChild(_li_delete)
-				_ul.appendChild(_li_edit)
-				_ul.appendChild(_li_save)
+				this._generate_options(_ul)
 			// Creacion de la seccion para la informacion del enlace
 			const _section = document.createElement("section")
 				// Atributos
